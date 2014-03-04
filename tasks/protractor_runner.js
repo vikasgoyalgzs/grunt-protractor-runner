@@ -13,7 +13,7 @@ var path = require('path');
 
 module.exports = function(grunt) {
 
-  grunt.registerMultiTask('protractor', 'A grunt task to run protractor.', function() {
+  grunt.registerTask('protractor', 'A grunt task to run protractor.', function() {
 
     // '.../node_modules/protractor/lib/protractor.js'
     var protractorMainPath = require.resolve('protractor');
@@ -30,11 +30,6 @@ module.exports = function(grunt) {
       debug: false,
       args: {}
     });
-
-    // configFile is a special property which need not to be in options{} object.
-    if (!grunt.util._.isUndefined(this.data.configFile)) {
-      opts.configFile = this.data.configFile;
-    }
 
     grunt.verbose.writeln("Options: " + util.inspect(opts));
 
